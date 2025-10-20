@@ -1,0 +1,96 @@
+<section id="testimonials" class="relative overflow-hidden bg-white py-24 dark:bg-neutral-950">
+  <!-- soft background accents -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute -top-24 -left-24 h-[60vh] w-[60vh] rounded-full opacity-25 blur-3xl dark:opacity-15"
+         style="background: radial-gradient(60% 60% at 50% 50%, #a78bfa66, #f472b666 70%, transparent 80%);"></div>
+    <div class="absolute -bottom-24 right-0 h-[40vh] w-[50vh] rounded-full opacity-25 blur-3xl dark:opacity-15"
+         style="background: radial-gradient(60% 60% at 50% 50%, #f59e0b66, #818cf866 70%, transparent 80%);"></div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-6">
+    <!-- header -->
+    <div class="mb-12 text-center">
+      <span class="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 dark:text-neutral-400">Testimonials</span>
+      <h2 class="bg-gradient-to-r from-neutral-900 to-neutral-600 bg-clip-text py-2 text-4xl font-extrabold text-transparent dark:from-neutral-100 dark:to-neutral-400 md:text-5xl">
+        What Students Say
+      </h2>
+      <p class="mx-auto max-w-3xl text-lg text-neutral-600 dark:text-neutral-400">
+        Real stories from dancers who grew their skills & confidence.
+      </p>
+    </div>
+
+    <!-- viewport -->
+    <div class="relative">
+      <!-- left gradient fade -->
+
+
+      <!-- carousel track -->
+      <div
+        #track
+        class="no-scrollbar -mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 py-2 scroll-smooth"
+        (mouseenter)="pauseAuto()"
+        (mouseleave)="resumeAuto()"
+      >
+        <!-- one card = one testimonial -->
+        <article
+          *ngFor="let t of testimonials; let i = index"
+          class="group relative h-full min-w-[85%] snap-start rounded-3xl border border-neutral-200 bg-white/70 p-6 shadow-lg backdrop-blur transition-all hover:-translate-y-1 hover:shadow-xl sm:min-w-[60%] md:min-w-[45%] lg:min-w-[33%] dark:border-neutral-800 dark:bg-neutral-900/60"
+        >
+          <!-- glow on hover -->
+          <div class="pointer-events-none absolute -inset-px rounded-3xl bg-gradient-to-tr from-rose-400/40 via-orange-300/40 to-amber-300/40 opacity-0 blur transition-opacity duration-500 group-hover:opacity-100"></div>
+
+          <div class="relative">
+            <!-- stars -->
+            <div aria-label="5 stars" class="mb-4 flex items-center gap-1 text-amber-500">
+              <span *ngFor="let s of [1,2,3,4,5]">★</span>
+            </div>
+
+            <!-- quote -->
+            <p class="mb-6 text-base leading-relaxed text-neutral-700 dark:text-neutral-300">“{{ t.quote }}”</p>
+
+            <!-- footer -->
+            <div class="flex items-center gap-4">
+              <img [src]="t.avatar" [alt]="t.name" class="h-12 w-12 rounded-full object-cover ring-2 ring-white/60 dark:ring-neutral-800" />
+              <div>
+                <div class="font-semibold text-neutral-900 dark:text-neutral-100">{{ t.name }}</div>
+                <div class="text-sm text-neutral-600 dark:text-neutral-400">{{ t.role }}</div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- controls -->
+      <div class="mt-6 flex items-center justify-center gap-3">
+        <button
+          type="button"
+          (click)="prev()"
+          class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-300 bg-white text-neutral-800 hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700"
+          aria-label="Previous"
+        >‹</button>
+
+        <!-- dots -->
+        <div class="flex items-center gap-2">
+          <button
+            *ngFor="let _ of dotArray; let d = index"
+            type="button"
+            class="h-2.5 w-2.5 rounded-full transition"
+            [class.bg-neutral-900]="d === currentDot && !isDark"
+            [class.bg-neutral-100]="d === currentDot && isDark"
+            [class.bg-neutral-300]="d !== currentDot && !isDark"
+            [class.bg-neutral-700]="d !== currentDot && isDark"
+            (click)="goToDot(d)"
+            aria-label="Go to slide"
+          ></button>
+        </div>
+
+        <button
+          type="button"
+          (click)="next()"
+          class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-300 bg-white text-neutral-800 hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700"
+          aria-label="Next"
+        >›</button>
+      </div>
+    </div>
+  </div>
+</section>

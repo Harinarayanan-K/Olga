@@ -1,0 +1,92 @@
+<!-- Fixed header always on top -->
+<header
+  class="fixed top-0 left-0 right-0 z-[1000] bg-white/80 dark:bg-black backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
+  <nav class="mx-auto px-6 py-3 md:py-4 max-w-7xl">
+    <div class="flex items-center justify-between gap-4">
+      <!-- Brand -->
+      <a routerLink="/" fragment="hero" class="flex items-center gap-3">
+        <div
+          class="w-10 h-10 rounded-full bg-neutral-900 dark:bg-neutral-100 flex items-center justify-center shadow-sm">
+          <span class="text-white dark:text-neutral-900 font-bold text-lg">O</span>
+        </div>
+        <span class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Olga Dance</span>
+      </a>
+
+      <!-- Nav links -->
+      <div class="hidden md:flex items-center gap-6">
+        <a routerLink="/" fragment="hero"
+           routerLinkActive="text-neutral-900 dark:text-neutral-100 font-semibold"
+           [routerLinkActiveOptions]="{ exact: false }"
+           class="relative group text-neutral-700 dark:text-neutral-300 transition-colors">
+          Home
+          <span
+            class="pointer-events-none absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-neutral-900 dark:bg-neutral-100 transition-transform duration-300 group-hover:scale-x-100"
+            aria-hidden="true"></span>
+        </a>
+
+        <a routerLink="/" fragment="programs"
+           routerLinkActive="text-neutral-900 dark:text-neutral-100 font-semibold"
+           class="relative group text-neutral-700 dark:text-neutral-300 transition-colors">
+          Programs
+          <span class="pointer-events-none absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-neutral-900 dark:bg-neutral-100 transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
+
+        <a routerLink="/" fragment="workshops"
+           routerLinkActive="text-neutral-900 dark:text-neutral-100 font-semibold"
+           class="relative group text-neutral-700 dark:text-neutral-300 transition-colors">
+          Workshops
+          <span class="pointer-events-none absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-neutral-900 dark:bg-neutral-100 transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
+
+        <a routerLink="/" fragment="about"
+           routerLinkActive="text-neutral-900 dark:text-neutral-100 font-semibold"
+           class="relative group text-neutral-700 dark:text-neutral-300 transition-colors">
+          About
+          <span class="pointer-events-none absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-neutral-900 dark:bg-neutral-100 transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
+
+        <a routerLink="/" fragment="contact"
+           routerLinkActive="text-neutral-900 dark:text-neutral-100 font-semibold"
+           class="relative group text-neutral-700 dark:text-neutral-300 transition-colors">
+          Contact
+          <span class="pointer-events-none absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-neutral-900 dark:bg-neutral-100 transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
+      </div>
+
+      <!-- Right controls -->
+      <div class="flex items-center gap-2">
+        <!-- Theme toggle -->
+        <button type="button" (click)="toggleTheme()"
+          class="inline-flex items-center justify-center rounded-lg border border-neutral-300 dark:border-neutral-700
+                 bg-white/70 dark:bg-neutral-800/70 text-neutral-700 dark:text-neutral-200
+                 hover:bg-white dark:hover:bg-neutral-700 transition-colors px-3 py-2"
+          aria-label="Toggle dark mode">
+          <!-- Sun/Moon icons -->
+          <svg *ngIf="!isDark" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM1 13h3v-2H1v2zm10 10h2v-3h-2v3zm7.04-19.95l-1.41-1.41-1.79 1.8 1.41 1.41 1.79-1.8zM20 11v2h3v-2h-3zm-2.76 8.16l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM12 7a5 5 0 100 10 5 5 0 000-10z" />
+          </svg>
+          <svg *ngIf="isDark" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21.64 13a9 9 0 01-11.31-11.31A1 1 0 008 1a11 11 0 1015 15 1 1 0 00-1.36-1z" />
+          </svg>
+        </button>
+
+        <!-- Mobile menu (visual only) -->
+        <button type="button"
+          class="md:hidden inline-flex items-center justify-center rounded-lg border border-neutral-300 dark:border-neutral-700
+                 bg-white/70 dark:bg-neutral-800/70 text-neutral-700 dark:text-neutral-200 px-3 py-2"
+          aria-label="Open menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Push content below the fixed header (≈72px) -->
+<div class="pt-[72px]">
+  <router-outlet></router-outlet>
+</div>

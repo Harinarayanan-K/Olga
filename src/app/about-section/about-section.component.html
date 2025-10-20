@@ -1,0 +1,123 @@
+<section id="about" class="relative overflow-hidden bg-neutral-50 dark:bg-neutral-900 py-24">
+  <!-- subtle background accents -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute -top-32 -right-24 h-80 w-80 rounded-full bg-gradient-to-tr from-pink-300/30 via-rose-200/20 to-amber-200/20 blur-3xl"></div>
+    <div class="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-gradient-to-tr from-amber-300/30 via-fuchsia-200/20 to-sky-200/20 blur-3xl"></div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="grid items-center gap-16 md:grid-cols-2">
+      <!-- LEFT: copy -->
+      <div class="space-y-7">
+        <span class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white/70 px-3 py-1 text-xs font-semibold tracking-wider text-neutral-700 backdrop-blur dark:border-neutral-800 dark:bg-neutral-800/50 dark:text-neutral-300 uppercase">
+          <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.39 4.84L20 8.76l-4 3.9.95 5.54L12 15.9l-4.95 2.3.95-5.54-4-3.9 5.61-.92L12 3z"/></svg>
+          About Me
+        </span>
+
+        <h2 class="text-4xl font-bold leading-tight text-neutral-900 md:text-5xl dark:text-neutral-100">
+          <span class="bg-gradient-to-r from-rose-500 via-orange-500 to-amber-400 bg-clip-text text-transparent">Passionate</span>
+          About Dance &amp; Culture
+        </h2>
+
+        <p class="text-lg leading-relaxed text-neutral-700 dark:text-neutral-300">
+          With over <strong>15 years</strong> of experience in belly dancing, I’ve dedicated my life to mastering this art and sharing it with others. My journey began in Cairo, learning from renowned masters and performing at prestigious venues.
+        </p>
+
+        <p class="text-lg leading-relaxed text-neutral-700 dark:text-neutral-300">
+          Belly dancing is more than movement—it's culture, confidence, and self-expression. Through my programs and workshops, I empower dancers at every level to find their unique style.
+        </p>
+
+        <!-- highlights -->
+        <ul class="grid gap-3 sm:grid-cols-2">
+          <li class="flex items-start gap-3">
+            <span class="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0L3.293 9.957a1 1 0 011.414-1.414l3.043 3.043 6.543-6.543a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            </span>
+            <span class="text-neutral-700 dark:text-neutral-300">Personalized coaching &amp; progression</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3h12l-1 9H5L4 3zm2 13a2 2 0 100 4h8a2 2 0 100-4H6z"/></svg>
+            </span>
+            <span class="text-neutral-700 dark:text-neutral-300">Workshops &amp; stage performance mentoring</span>
+          </li>
+        </ul>
+
+        <!-- stats -->
+        <div class="grid grid-cols-2 gap-6 pt-2 sm:grid-cols-4">
+          <div>
+            <div class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">500+</div>
+            <div class="text-sm text-neutral-600 dark:text-neutral-400">Students</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">15+</div>
+            <div class="text-sm text-neutral-600 dark:text-neutral-400">Years</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">50+</div>
+            <div class="text-sm text-neutral-600 dark:text-neutral-400">Workshops</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">20+</div>
+            <div class="text-sm text-neutral-600 dark:text-neutral-400">Performances</div>
+          </div>
+        </div>
+
+        <!-- actions -->
+        <div class="flex flex-col gap-3 pt-3 sm:flex-row">
+          <a
+            routerLink="/"
+            fragment="about"
+            class="inline-flex items-center justify-center rounded-lg bg-neutral-900 px-8 py-4 font-semibold text-white transition hover:scale-[1.02] hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200"
+          >
+            Read Full Story
+          </a>
+          <a
+            routerLink="/"
+            fragment="gallery"
+            class="inline-flex items-center justify-center rounded-lg border border-neutral-300 bg-white px-8 py-4 font-semibold text-neutral-900 transition hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-700"
+          >
+            View Gallery
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: image card -->
+      <div class="relative">
+        <!-- gradient frame -->
+        <div class="group relative mx-auto w-full max-w-[520px]">
+          <div class="absolute -inset-0.5 rounded-3xl bg-gradient-to-tr from-rose-400 via-orange-300 to-amber-300 opacity-60 blur transition duration-500 group-hover:opacity-90 dark:from-rose-500/60 dark:via-orange-400/60 dark:to-amber-400/60"></div>
+
+          <div class="relative rounded-3xl bg-white/70 p-2 backdrop-blur dark:bg-neutral-800/60">
+            <div class="overflow-hidden rounded-2xl">
+              <img
+                alt="About Zahra"
+                src="https://scontent-prg1-1.xx.fbcdn.net/v/t39.30808-6/491357329_10232774568439500_3375407226889637384_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=E_DdsSSbVh4Q7kNvwHzRpV9&_nc_oc=AdnZTIu062wvMJsuu6q-ppZcQau7dbHw7stfzeGsSo9KEJbSkb6qkAVo9FMT4kMPp7g&_nc_zt=23&_nc_ht=scontent-prg1-1.xx&_nc_gid=b2UdCSoO0unDfn7KPVnARA&oh=00_AffJrT0zJ0cDHnZNorsIH4evqf5zIdhbLPzT_l7aVDyBsg&oe=68F8814D"
+                class="block h-full w-full scale-[1.02] object-cover transition duration-700 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+
+          <!-- floating badge -->
+          <div class="absolute -bottom-6 -right-6 rounded-xl border border-neutral-200 bg-white/90 p-5 shadow-xl backdrop-blur transition group-hover:translate-y-[-2px] dark:border-neutral-700 dark:bg-neutral-900/90">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900">
+                <svg class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <div>
+                <div class="text-lg font-bold text-neutral-900 dark:text-neutral-100">Certified</div>
+                <div class="text-sm text-neutral-600 dark:text-neutral-400">Professional Instructor</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- tiny sparkles -->
+        <div class="pointer-events-none absolute -left-6 -top-6 text-2xl opacity-60">✨</div>
+        <div class="pointer-events-none absolute -right-4 top-10 text-xl opacity-60">✦</div>
+      </div>
+    </div>
+  </div>
+</section>

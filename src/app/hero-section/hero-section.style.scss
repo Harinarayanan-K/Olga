@@ -1,0 +1,141 @@
+/* Smooth anchors + offset under fixed header */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 72px; }
+
+/* ---------- Keyframes ---------- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-in {
+  from { opacity: 0; transform: translate(-12px, 12px) scale(.98); }
+  to   { opacity: 1; transform: translate(0,0) scale(1); }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0) }
+  50%      { transform: translateY(-10px) }
+}
+@keyframes blob {
+  0%   { transform: translate(0,0) scale(1) rotate(0deg); filter: blur(24px); }
+  50%  { transform: translate(20px,-30px) scale(1.08) rotate(10deg); filter: blur(28px); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); filter: blur(24px); }
+}
+@keyframes note-up {
+  0%   { opacity: 0; transform: translateY(16px) rotate(-8deg) scale(.92); }
+  10%  { opacity: .95; }
+  100% { opacity: 0; transform: translateY(-100px) rotate(8deg) scale(1.06); }
+}
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ---------- Utilities ---------- */
+.animate-fade-up { animation: fade-up .6s cubic-bezier(.2,.6,.2,1) both; }
+.animate-slide-in { animation: slide-in .5s cubic-bezier(.2,.6,.2,1) .25s both; }
+.float-y { animation: float-y 4.5s ease-in-out infinite; }
+.animate-bounce-slow { animation: bounce-slow 1.8s ease-in-out infinite; }
+
+/* ---------- Blobs (silk background) ---------- */
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(48px);
+  opacity: .35;
+  animation: blob 10s ease-in-out infinite;
+  will-change: transform, filter;
+}
+.blob-1 {
+  width: 60vh; height: 60vh; top: -20vh; left: -10vh;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(129, 140, 248, .5), rgba(244, 63, 94, .35));
+}
+.blob-2 {
+  width: 50vh; height: 40vh; bottom: -10vh; right: 5vh; animation-duration: 12s; animation-delay: .6s;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(251, 146, 60, .5), rgba(244, 114, 182, .35));
+}
+.blob-3 {
+  width: 46vh; height: 36vh; top: 20vh; left: 25%; animation-duration: 9s; animation-delay: 1s;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(253, 186, 116, .55), rgba(244, 63, 94, .35));
+}
+
+/* ---------- Music-note sparkles (visible) ---------- */
+.note {
+  position: absolute;
+  font-size: 28px;
+  opacity: 0;
+  text-shadow: 0 4px 18px rgba(0,0,0,.25);
+  animation: note-up 3.2s ease-in infinite;
+  will-change: transform, opacity;
+}
+.note-1 { left: 10%; bottom: 12%; color: #fb7185; animation-delay: .2s; }  /* rose-400 */
+.note-2 { left: 42%; bottom: 6%;  color: #f59e0b; animation-delay: .8s; }  /* amber-500 */
+.note-3 { left: 74%; bottom: 16%; color: #818cf8; animation-delay: 1.4s; } /* indigo-400 */
+
+/* ---------- Parallax tilt (hover) ---------- */
+.perspective { perspective: 900px; }
+.tilt {
+  transform-style: preserve-3d;
+  transition: transform .35s ease, box-shadow .35s ease;
+  will-change: transform;
+}
+.tilt:hover {
+  transform: rotateX(4deg) rotateY(-3deg) translateY(-2px) scale(1.01);
+  box-shadow: 0 25px 60px -15px rgba(0,0,0,.35);
+}
+
+/* ---------- CTA shimmer (stage light) ---------- */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shimmer::before {
+  content: "";
+  position: absolute;
+  inset: -30% -120%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+  transform: rotate(18deg) translateX(-120%);
+  mix-blend-mode: screen;
+  animation: btn-shine 2.4s ease-in-out infinite;
+}
+.btn-shimmer:hover::before { animation-duration: 1.2s; }
+@keyframes btn-shine { to { transform: rotate(18deg) translateX(140%); } }
+
+/* ---------- Mini equalizer for music ---------- */
+.eq-bars {
+  display: inline-flex;
+  align-items: end;
+  gap: 4px;
+  height: 16px;
+}
+.eq-bars span {
+  width: 3px;
+  height: 4px;
+  background: currentColor;
+  opacity: .35;
+  transform-origin: bottom;
+  border-radius: 2px;
+  animation: eq-pulse 1.2s ease-in-out infinite;
+}
+.eq-bars span:nth-child(2) { animation-delay: .1s; }
+.eq-bars span:nth-child(3) { animation-delay: .2s; }
+.eq-bars span:nth-child(4) { animation-delay: .3s; }
+@keyframes eq-pulse {
+  0%, 100% { height: 4px; opacity: .35; }
+  50%      { height: 16px; opacity: .9; }
+}
+/* only animate bars when playing */
+.is-playing .eq-bars span { animation-play-state: running; }
+.eq-bars span { animation-play-state: paused; }
+
+/* Accessibility: comment this block while testing if animations seem disabled
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up, .animate-slide-in, .float-y, .blob, .note, .animate-bounce-slow,
+  .eq-bars span, .btn-shimmer::before { animation: none !important; }
+}
+*/
+
+
+
+
+
